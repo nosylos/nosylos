@@ -1,0 +1,5 @@
+nosylos
+
+Pentru contul {{email}}, vă puteți confirma emailul la {{confirm_url}}
+
+Dacă nu ați solicitat acest email, vă rugăm să îl ignorați!

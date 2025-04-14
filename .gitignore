@@ -31,7 +31,55 @@ wheels/
 *.egg
 *.manifest
 *.spec
+backend/py3.11/
 
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+py3.11/*
+
+# js dependencies
+frontend/nosylos/node_modules
+frontend/nosylos/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+frontend/nosylos/coverage
+
+# next.js
+frontend/nosylos/.next/
+frontend/nosylos/out/
+
+# production
+frontend/nosylos/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
