@@ -158,7 +158,7 @@ else:
         # Here set your local instance's password
         password = "localpassword"
         # checkov:skip=CKV_SECRET_80: Local password, no critical data
-        host = "localhost"
+        host = "db"
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
@@ -205,7 +205,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 ADMINS = [
-    ("sgustin", "gustin.daniel1@gmail.com"),
+    ("usage", "unilluminatedsages@gmail.com"),
 ]
 
 SUPPORT_EMAIL = "support@nosylos.com"

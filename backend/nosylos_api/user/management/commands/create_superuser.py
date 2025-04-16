@@ -10,7 +10,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         try:
             User.objects.create_superuser(
-                email="argus@nosylos.store",
+                email="argus@nosylos.com",
                 password=os.environ.get(
                     "STAGING_MASTER_USER_PASS", "v396lEuad8rEnQKw"
                 ),
