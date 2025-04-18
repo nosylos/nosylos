@@ -1,0 +1,36 @@
+services:
+  backend:
+    build:
+      context: ./backend/nosylos_api
+      dockerfile: ../Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    env_file:
+      - local.env
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend/nosylos
+      dockerfile: ../Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    env_file:
+      - local.env
+
+  db:
+    image: postgres:15
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: test_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: localpassword
+
+volumes:
+  pgdata:
