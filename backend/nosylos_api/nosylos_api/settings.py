@@ -16,7 +16,7 @@ FRONTEND_URL = "http://127.0.0.1:3000"
 CSRF_COOKIE_DOMAIN = "127.0.0.1"
 if ENVIRONMENT == "staging":
     SECRET_KEY = os.environ.get("DJANGO_STAGING_SECRET", SECRET_KEY)
-    FRONTEND_URL = "https://www.nosylos-staging.com"
+    FRONTEND_URL = "https://www.nosylos.com"
     CSRF_COOKIE_DOMAIN = ".nosylos.com"
 
 if "RDS_HOSTNAME" in os.environ:
@@ -39,10 +39,9 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://127.0.0.1",
-    "https://nosylos-staging.com",
-    "https://www.nosylos-staging.com",
     "https://nosylos.com",
     "https://www.nosylos.com",
+    "https://staging.nosylos.com",
     "https://staging.api.nosylos.com",
 ]
 CORS_ALLOW_CREDENTIALS = True
@@ -224,7 +223,7 @@ else:
     # checkov:skip=CKV_SECRET_6: Test key can't break anything
     STRIPE_KEY = "test_key"
 
-IMAGE_BUCKET_NAME = "images.nosylos-staging.com"
+IMAGE_BUCKET_NAME = "images.nosylos.com"
 
 # django-request configs
 REQUEST_ANONYMOUS_IP = True

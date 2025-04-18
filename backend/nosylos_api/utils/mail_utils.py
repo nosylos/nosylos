@@ -10,7 +10,7 @@ def send_mail_to_support(subject, message):
     sent_count = send_mail(
         subject=subject,
         message=message,
-        from_email="noreply@nosylos.store",
+        from_email="noreply@nosylos.com",
         recipient_list=[settings.SUPPORT_EMAIL],
     )
 
@@ -40,7 +40,7 @@ def send_account_confirmation_email(user):
     sent_count = send_mail(
         subject="nosylos Confirmare email",
         message=plain_message,
-        from_email="noreply@nosylos.store",
+        from_email="noreply@nosylos.com",
         recipient_list=[user.email],
         html_message=html_msg,
     )
