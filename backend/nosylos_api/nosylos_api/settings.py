@@ -84,11 +84,7 @@ STORAGES = {
         },
     },
     "staticfiles": {
-        "BACKEND": "storages.backends.s3.S3Storage",
-        "OPTIONS": {
-          "bucket_name": os.environ.get("AWS_STATIC_STORAGE_BUCKET_NAME", ""),
-          "endpoint_url": os.environ.get("AWS_STATIC_S3_ENDPOINT_URL", "")
-        },
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
 

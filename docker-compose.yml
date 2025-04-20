@@ -17,7 +17,7 @@ services:
       AWS_ACCESS_KEY_ID: aws_access_key
       AWS_SECRET_ACCESS_KEY: aws_access_secret
       AWS_STORAGE_BUCKET_NAME: assets-bucket
-      AWS_S3_ENDPOINT_URL: http://minio:9000
+      AWS_S3_ENDPOINT_URL: http://127.0.0.1:9000
 
   frontend:
     container_name: nextjs-app
@@ -33,6 +33,7 @@ services:
 
   db:
     image: postgres:15
+    container_name: postgres
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
