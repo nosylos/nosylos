@@ -74,6 +74,25 @@ REST_FRAMEWORK = {
     ],
 }
 
+
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+          "bucket_name": os.environ.get("AWS_STORAGE_BUCKET_NAME", ""),
+          "endpoint_url": os.environ.get("AWS_S3_ENDPOINT_URL", "")
+        },
+    },
+    "staticfiles": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+          "bucket_name": os.environ.get("AWS_STATIC_STORAGE_BUCKET_NAME", ""),
+          "endpoint_url": os.environ.get("AWS_STATIC_S3_ENDPOINT_URL", "")
+        },
+    },
+}
+
+
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=45),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
@@ -101,9 +120,7 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = "user.User"
 
 MIGRATION_MODULES = {
-    "product": "product.model_data.migrations",
     "user": "user.model_data.migrations",
-    "ecommerce": "ecommerce.model_data.migrations",
 }
 
 MIDDLEWARE = [
@@ -222,8 +239,6 @@ if "STRIPE_PRODUCTION_KEY_ID" in os.environ:
 else:
     # checkov:skip=CKV_SECRET_6: Test key can't break anything
     STRIPE_KEY = "test_key"
-
-IMAGE_BUCKET_NAME = "images.nosylos.com"
 
 # django-request configs
 REQUEST_ANONYMOUS_IP = True

@@ -1,5 +1,6 @@
 services:
   backend:
+    container_name: django-app
     build:
       context: ./backend/nosylos_api
       dockerfile: ../Dockerfile
@@ -11,8 +12,15 @@ services:
       - local.env
     depends_on:
       - db
+      - minio
+    environment:
+      AWS_ACCESS_KEY_ID: aws_access_key
+      AWS_SECRET_ACCESS_KEY: aws_access_secret
+      AWS_STORAGE_BUCKET_NAME: assets-bucket
+      AWS_S3_ENDPOINT_URL: http://minio:9000
 
   frontend:
+    container_name: nextjs-app
     build:
       context: ./frontend/nosylos
       dockerfile: ../Dockerfile
@@ -31,6 +39,20 @@ services:
       POSTGRES_DB: test_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: localpassword
+  
+  minio:
+    image: minio/minio
+    container_name: minio-s3
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
 
 volumes:
   pgdata:
+  minio_data:
