@@ -26,4 +26,4 @@ class UserAdmin(admin.ModelAdmin):
     inlines = [
         UserProfileInline,
     ]
-    search_fields = ("email")
+    search_fields = ("email",)

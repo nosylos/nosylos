@@ -79,8 +79,8 @@ STORAGES = {
     "default": {
         "BACKEND": "storages.backends.s3.S3Storage",
         "OPTIONS": {
-          "bucket_name": os.environ.get("AWS_STORAGE_BUCKET_NAME", ""),
-          "endpoint_url": os.environ.get("AWS_S3_ENDPOINT_URL", "")
+            "bucket_name": os.environ.get("AWS_STORAGE_BUCKET_NAME", ""),
+            "endpoint_url": os.environ.get("AWS_S3_ENDPOINT_URL", ""),
         },
     },
     "staticfiles": {
@@ -97,6 +97,7 @@ SIMPLE_JWT = {
 
 INSTALLED_APPS = [
     "user",
+    "skilltree",
     "rest_framework",
     "rest_framework_simplejwt",
     "rest_framework_simplejwt.token_blacklist",
@@ -117,6 +118,7 @@ AUTH_USER_MODEL = "user.User"
 
 MIGRATION_MODULES = {
     "user": "user.model_data.migrations",
+    "skilltree": "skilltree.model_data.migrations",
 }
 
 MIDDLEWARE = [

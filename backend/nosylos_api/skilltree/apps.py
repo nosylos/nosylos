@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class skilltreeConfig(AppConfig):
+class SkillTreeConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     name = "skilltree"
