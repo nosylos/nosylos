@@ -1,7 +1,17 @@
 from django.contrib import admin
+from skilltree.model_data.models.badge import Badge
 from skilltree.model_data.models.skill import Skill
 from skilltree.model_data.models.skill_node import SkillNode
 from skilltree.model_data.models.skill_point import SkillPoint
+
+
+@admin.register(Badge)
+class BadgeAdmin(admin.ModelAdmin):
+    list_display = (
+        "name",
+        "skill_node__name",
+    )
+    search_fields = ("name", "skill_node__name")
 
 
 class SkillPointInline(admin.StackedInline):
