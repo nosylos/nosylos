@@ -98,6 +98,7 @@ SIMPLE_JWT = {
 INSTALLED_APPS = [
     "user",
     "skilltree",
+    "plotline",
     "rest_framework",
     "rest_framework_simplejwt",
     "rest_framework_simplejwt.token_blacklist",
@@ -119,6 +120,7 @@ AUTH_USER_MODEL = "user.User"
 MIGRATION_MODULES = {
     "user": "user.model_data.migrations",
     "skilltree": "skilltree.model_data.migrations",
+    "plotline": "plotline.model_data.migrations",
 }
 
 MIDDLEWARE = [
