@@ -1,5 +1,14 @@
 # Local development
 
+## Pre-commit prerequisite
+
+We want to have standard formatting and not think about it at all. pre-commit hook allows you to code without thinking of code style
+
+- Install `pre-commit` by running `pip install pre-commit`
+- run `pre-commit install`
+
+## Local environment
+
 Locally we use Docker to easily get going.
 
 Running `docker-compose up` will setup the following containers:
