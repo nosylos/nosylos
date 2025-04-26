@@ -12,7 +12,7 @@ SECRET_KEY = (
     "django-insecure-p(#$^&62v76luslm1!mqmsg-^drfd$cbj)brhkz$@)$1ug9^sp"
 )
 
-FRONTEND_URL = "http://127.0.0.1:3000"
+FRONTEND_URL = "http://172.18.0.3:3000"
 CSRF_COOKIE_DOMAIN = "127.0.0.1"
 if ENVIRONMENT == "staging":
     SECRET_KEY = os.environ.get("DJANGO_STAGING_SECRET", SECRET_KEY)
@@ -79,8 +79,12 @@ STORAGES = {
     "default": {
         "BACKEND": "storages.backends.s3.S3Storage",
         "OPTIONS": {
-            "bucket_name": os.environ.get("AWS_STORAGE_BUCKET_NAME", ""),
-            "endpoint_url": os.environ.get("AWS_S3_ENDPOINT_URL", ""),
+            "bucket_name": os.environ.get(
+                "AWS_STORAGE_BUCKET_NAME", "assets-bucket"
+            ),
+            "endpoint_url": os.environ.get(
+                "AWS_S3_ENDPOINT_URL", "http://172.18.0.3"
+            ),
         },
     },
     "staticfiles": {

@@ -14,10 +14,10 @@ services:
       - db
       - minio
     environment:
-      AWS_ACCESS_KEY_ID: aws_access_key
-      AWS_SECRET_ACCESS_KEY: aws_access_secret
+      AWS_ACCESS_KEY_ID: minioadmin
+      AWS_SECRET_ACCESS_KEY: minioadmin
       AWS_STORAGE_BUCKET_NAME: assets-bucket
-      AWS_S3_ENDPOINT_URL: http://127.0.0.1:9000
+      AWS_S3_ENDPOINT_URL: http://172.18.0.3:9000
 
   frontend:
     container_name: nextjs-app
@@ -40,7 +40,7 @@ services:
       POSTGRES_DB: test_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: localpassword
-  
+
   minio:
     image: minio/minio
     container_name: minio-s3
