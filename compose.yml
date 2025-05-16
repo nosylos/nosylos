@@ -27,9 +27,11 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend:/app
-    env_file:
-      - local.env
+      - ./frontend/nosylos:/app/nosylos
+      - node_modules:/app/nosylos/node_modules
+    restart: always
+    environment:
+      - WATCHPACK_POLLING=true
 
   db:
     image: postgres:15
@@ -57,3 +59,4 @@ services:
 volumes:
   pgdata:
   minio_data:
+  node_modules:

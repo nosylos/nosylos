@@ -1,8 +1,8 @@
-FROM node:18-slim
+FROM node:20-slim
 
 WORKDIR /app/nosylos
 
-COPY package*.json ./
+COPY package.json ./package.json
 RUN npm install
 
 COPY . .

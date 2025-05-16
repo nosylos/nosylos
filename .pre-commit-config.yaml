@@ -98,13 +98,14 @@ repos:
         exclude: "Dockerfile.*"
         args: [-style=file]
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v7.30.0
+    rev: v9.26.0
     hooks:
       - id: eslint
         args:
           - "--ext=.js,.jsx,.ts,.tsx"
           - "--max-warnings=0"
           - "--fix"
-        exclude: "/static/|/templates/|/minimal-ui/"
+        exclude: "/static/|/templates/|/minimal-ui/|next.config.ts"
         files: \.(ts|tsx|js|jsx)$
         types: [file]
+        working_directory: frontend/nosylos
